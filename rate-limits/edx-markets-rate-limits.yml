@@ -1,0 +1,30 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+generated: '2026-07-19'
+method: searched
+provider: EDX Markets
+providerId: edx-markets
+created: '2026-07-19'
+modified: '2026-07-19'
+tags:
+  - Rate Limiting
+  - FIX
+  - Crypto Exchange
+description: >-
+  EDX Markets order-entry throttle limits, published in the EDXM FIX Order Entry
+  Specification. Limits are enforced per FIX ID (username) by EDXM Global Market
+  Operations. On breach the venue emits RATE_LIMIT_EXCEEDED and disconnects the
+  session; there is no message-level throttling (the venue does not queue/slow
+  messages). Reconnection is permitted immediately after a rate-limit disconnect.
+source: https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Order-Entry-Specifications.pdf
+signal:
+  mechanism: RATE_LIMIT_EXCEEDED + session disconnect
+  message_throttling: false
+  reconnect: immediate after rate-limit disconnect
+limits:
+  - name: Maximum messages per FIX ID
+    scope: fix-id (username)
+    metric: messages_per_5_seconds
+    limit: 1000
+    timeFrame: 5 seconds
+    administered_by: EDXM Global Market Operations

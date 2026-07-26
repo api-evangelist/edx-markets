@@ -1,0 +1,70 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://edxmarkets.com/vr-edx-markets/ — EDXM FIX Order Entry, FIX Market
+  Data, Binary (SBE) Market Data and FIX Drop Copy Specifications.
+description: >-
+  Cross-cutting connectivity and messaging conventions for the EDX Markets
+  venue. EDX is a FIX-native institutional exchange: order entry and drop copy
+  use FIX 5.0 SP2 over a FIXT.1.1 session inside an mTLS tunnel; market data is
+  available as FIX 5.0 SP2 or as a binary Simple Binary Encoding (SBE) feed.
+  These are the venue-wide semantics that a REST OpenAPI would otherwise carry.
+api_style: FIX 5.0 SP2 messaging over FIXT.1.1 sessions, transported over mTLS
+transport:
+  protocol: FIX (Financial Information Exchange)
+  session_layer: FIXT.1.1
+  application_layer: FIX 5.0 SP2
+  security: mutual TLS (self-signed X.509 client certificate); IP whitelisting
+  detail: authentication/edx-markets-authentication.yml
+interfaces:
+  - name: FIX Order Entry
+    dictionary: EDX_ORDER_FIX50SP2.xml
+    docs: https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Order-Entry-Specifications.pdf
+  - name: FIX Drop Copy
+    dictionary: EDX_DROP_COPY_FIX50SP2.xml
+    docs: https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Drop-Copy-Specifications.pdf
+  - name: FIX Market Data
+    dictionary: EDX_MARKET_DATA_FIX50SP2.xml
+    docs: https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Market-Data-Specifications.pdf
+  - name: Binary (SBE) Market Data
+    dictionary: EDX_MARKET_DATA_SBE_CODECS.xml
+    docs: https://edxmarkets.com/wp-content/uploads/EDXM-Binary-Market-Data-Specifications.pdf
+session_management:
+  logon: MsgType 35=A (Logon IN/OUT)
+  heartbeat: MsgType 35=0
+  test_request: MsgType 35=1
+  resend_request: MsgType 35=2
+  sequence_reset: MsgType 35=4 (GapFill / Reset)
+  reject: MsgType 35=3 (session-level Reject)
+  sequence_numbers: strictly increasing MsgSeqNum per session, with ResendRequest recovery
+order_identity:
+  field: ClOrdID (Tag 11)
+  note: >-
+    Client-assigned order identifier; must be unique per order. FIX ClOrdID is
+    an order-correlation identifier, not a replay-idempotency key — EDX does not
+    document an idempotency-key retry contract, so no Idempotency pointer is
+    emitted for this venue.
+idempotency:
+  supported: false
+  note: FIX venue; order correlation is via ClOrdID (Tag 11), no idempotency-key header.
+resilience:
+  cancel_on_disconnect: supported (order entry)
+  unsolicited_cancel: supported
+error_envelope:
+  session_level: Reject (35=3) with SessionRejectReason (Tag 373)
+  business_level: BusinessMessageReject (35=j) with BusinessRejectReason (Tag 380)
+  order_level: >-
+    ExecutionReport REJECTED (35=8, OrdStatus 8) with OrdRejReason (Tag 103);
+    OrderCancelReject (35=9) with CxlRejReason (Tag 102)
+  detail: errors/edx-markets-error-codes.yml
+rate_limiting:
+  scope: per FIX ID (username)
+  limit: 1000 messages per 5 seconds
+  signal: RATE_LIMIT_EXCEEDED then session disconnect (no message-level throttling)
+  detail: rate-limits/edx-markets-rate-limits.yml
+versioning:
+  scheme: document-versioned specifications (semver-style, e.g. Order Entry v1.0.x)
+  detail: changelog/edx-markets-changelog.yml
+environments:
+  detail: sandbox/edx-markets-sandbox.yml
+  list: [Production, UAT]

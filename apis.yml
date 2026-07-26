@@ -1,8 +1,17 @@
 aid: edx-markets
 name: EDX Markets
-description: 'EDX Markets is a company surfaced as a portfolio company of pantera-capital and added to
-  the API Evangelist network as a stub for enrichment. Sector: crypto. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  EDX Markets is an institutional cryptocurrency exchange that operates the
+  world's only centrally cleared crypto trading venue, combining deep liquidity,
+  transparent markets, low trading costs and ultra-low-latency matching-engine
+  technology. It runs a spot exchange (EDX Markets), a perpetual-futures
+  exchange (EDXM International, based in Singapore), a central clearinghouse with
+  daily net settlement and bankruptcy-remote member accounts (EDXM Global), and
+  a white-label crypto-as-a-service platform (EDX FlowConnect). Connectivity for
+  members is delivered over the FIX protocol — FIX 5.0 SP2 order entry and drop
+  copy plus FIX and binary (SBE) market data, transported over mutually
+  authenticated TLS — rather than a public REST/OpenAPI. EDX is backed by
+  institutional partners and was surfaced through the pantera-capital portfolio.
 url: https://raw.githubusercontent.com/api-evangelist/edx-markets/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,13 +19,62 @@ x-backed-by:
 - pantera-capital
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: approval
+  trial: false
+  try_now: false
+  public: false
+  label: Requires approval
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Crypto
-apis: []
+- Cryptocurrency
+- Digital Assets
+- Exchange
+- Trading
+- FIX Protocol
+- Market Data
+- Clearing
+- Institutional
+image: https://edxmarkets.com/wp-content/uploads/EDX_URLPrevew_2024-09-10.jpg
+apis:
+- name: EDX Markets FIX API (Order Entry & Market Data)
+  description: >-
+    The EDX Markets institutional trading interface, delivered over the FIX
+    protocol: FIX 5.0 SP2 order entry and drop copy plus FIX and binary (SBE)
+    market data over a FIXT.1.1 session inside a mutually authenticated TLS
+    tunnel. Member-provisioned; there is no public REST/OpenAPI endpoint.
+  humanURL: https://edxmarkets.com/vr-edx-markets/
+  baseURL: https://edxmarkets.com
+  tags:
+  - FIX
+  - Order Entry
+  - Market Data
+  - Crypto Exchange
+  properties:
+  - type: APIReference
+    url: https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Order-Entry-Specifications.pdf
+  - type: Documentation
+    url: https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Market-Data-Specifications.pdf
+  - type: Authentication
+    url: authentication/edx-markets-authentication.yml
+  - type: Conventions
+    url: conventions/edx-markets-conventions.yml
+  - type: ErrorCatalog
+    url: errors/edx-markets-error-codes.yml
+  - type: RateLimits
+    url: rate-limits/edx-markets-rate-limits.yml
+  - type: Sandbox
+    url: sandbox/edx-markets-sandbox.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +83,46 @@ maintainers:
 common:
 - type: Website
   url: https://www.edxmarkets.com/
+- type: DeveloperPortal
+  url: https://edxmarkets.com/vr-edx-markets/
+- type: Documentation
+  url: https://edxmarkets.com/vr-edx-markets/
+- type: APIReference
+  url: https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Order-Entry-Specifications.pdf
+- type: Support
+  url: https://edxmarkets.com/contact/
+- type: Blog
+  url: https://edxmarkets.com/news-insights/
+- type: SignUp
+  url: https://edxmarkets.com/join-edx-markets/
+- type: Pricing
+  url: https://edxmarkets.com/wp-content/uploads/EDX-Markets-Fee-Schedule.pdf
+- type: TermsOfService
+  url: https://edxmarkets.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://edxmarkets.com/privacy-policy/
+- type: Authentication
+  url: authentication/edx-markets-authentication.yml
+- type: Conventions
+  url: conventions/edx-markets-conventions.yml
+- type: Conformance
+  url: conformance/edx-markets-conformance.yml
+- type: ErrorCatalog
+  url: errors/edx-markets-error-codes.yml
+- type: RateLimits
+  url: rate-limits/edx-markets-rate-limits.yml
+- type: Sandbox
+  url: sandbox/edx-markets-sandbox.yml
+- type: ChangeLog
+  url: changelog/edx-markets-changelog.yml
+- type: Lifecycle
+  url: lifecycle/edx-markets-lifecycle.yml
+- type: DomainSecurity
+  url: security/edx-markets-domain-security.yml
+- type: LLMsTxt
+  url: llms/edx-markets-llms.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

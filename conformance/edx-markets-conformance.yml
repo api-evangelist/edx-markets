@@ -1,0 +1,39 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://edxmarkets.com/vr-edx-markets/ — EDXM FIX Order Entry, FIX Market
+  Data, Binary (SBE) Market Data specifications and published FIX dictionaries
+  (EDX_FIXT11.xml, EDX_ORDER_FIX50SP2.xml, EDX_MARKET_DATA_SBE_CODECS.xml).
+description: >-
+  Industry / cross-cutting standards the EDX Markets venue conforms to. EDX is a
+  standards-based institutional exchange built on the FIX Trading Community
+  protocol suite with an mTLS transport; it does not publish REST/OpenAPI, OAuth
+  or web-API standards.
+standards:
+  - id: fix-5.0-sp2
+    conforms: true
+    evidence: >-
+      Order entry, drop copy and market data use FIX 5.0 SP2 application
+      messages (EDX_ORDER_FIX50SP2.xml, EDX_DROP_COPY_FIX50SP2.xml,
+      EDX_MARKET_DATA_FIX50SP2.xml).
+  - id: fixt-1.1
+    conforms: true
+    evidence: FIXT.1.1 session/transport layer (EDX_FIXT11.xml).
+  - id: sbe-simple-binary-encoding
+    conforms: true
+    evidence: >-
+      Binary market data delivered via FIX Simple Binary Encoding
+      (EDX_MARKET_DATA_SBE_CODECS.xml, EDXM Binary Market Data Specifications).
+  - id: mutual-tls-x509
+    conforms: true
+    evidence: >-
+      Connectivity requires a self-signed X.509 client certificate with
+      extendedKeyUsage=clientAuth over an mTLS tunnel (EDX Self-Signed
+      Certificate Guide).
+  - id: oauth2
+    conforms: false
+  - id: openapi
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: FIX venue; errors are FIX Reject/BusinessMessageReject, not HTTP problem+json.

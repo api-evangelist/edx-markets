@@ -1,0 +1,39 @@
+generated: '2026-07-19'
+method: searched
+source: https://edxmarkets.com/vr-edx-markets/
+description: >-
+  EDX Markets separates a UAT (User Acceptance Testing) environment from
+  Production. UAT is a full parallel venue with its own FIX Order Entry, Market
+  Data, Binary (SBE) Market Data and Drop Copy specifications, FIX dictionaries,
+  and its own onboarding/contact form. There are no synthetic test cards (this
+  is a FIX order-entry venue, not a card acquirer); test order flow is exercised
+  against the UAT matching engine using UAT-provisioned FIX credentials.
+  Onboarding to either environment is member-provisioned by EDX Market
+  Operations, so no self-serve test keys are published.
+modes:
+  - name: production
+    docs: https://edxmarkets.com/vr-edx-markets/
+    specs:
+      - https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Order-Entry-Specifications.pdf
+      - https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Market-Data-Specifications.pdf
+      - https://edxmarkets.com/wp-content/uploads/EDXM-Binary-Market-Data-Specifications.pdf
+      - https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Drop-Copy-Specifications.pdf
+    contact_form: https://edxmarkets.com/wp-content/uploads/EDX-Production-Contact-Form.pdf
+  - name: uat
+    docs: https://edxmarkets.com/vr-edx-markets/
+    information_circular: https://edxmarkets.com/wp-content/uploads/EDX-Markets-Information-Circular_UAT.pdf
+    specs:
+      - https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Order-Entry-Specifications-UAT.pdf
+      - https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Market-Data-Specifications-UAT.pdf
+      - https://edxmarkets.com/wp-content/uploads/EDXM-Binary-Market-Data-Specifications-UAT.pdf
+      - https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Drop-Copy-Specifications-UAT.pdf
+    dictionaries:
+      - https://edxmarkets.com/wp-content/uploads/EDX_ORDER_FIX50SP2_UAT.xml
+      - https://edxmarkets.com/wp-content/uploads/EDX_MARKET_DATA_FIX50SP2_UAT.xml
+      - https://edxmarkets.com/wp-content/uploads/EDX_MARKET_DATA_SBE_CODECS_UAT.xml
+      - https://edxmarkets.com/wp-content/uploads/EDX_DROP_COPY_FIX50SP2_UAT.xml
+    contact_form: https://edxmarkets.com/wp-content/uploads/EDX-UAT-Contact-Form.pdf
+provisioning: >-
+  Member-provisioned. Connectivity to either environment requires a self-signed
+  X.509 client certificate and whitelisted source IPs submitted to EDX Market
+  Operations; no self-serve/public test credentials are published.

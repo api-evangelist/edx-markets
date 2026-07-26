@@ -1,0 +1,48 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  Revision history tables published inside the EDXM FIX Order Entry and FIX
+  Market Data Specifications (https://edxmarkets.com/vr-edx-markets/).
+description: >-
+  EDX Markets versions each connectivity specification independently with a
+  document version (semver-style, e.g. Order Entry Specification v1.0.x) and a
+  dated revision-history table inside the PDF. There is no single web changelog
+  feed; the specification revision histories are the source of truth. This
+  captures the recent window from the FIX Order Entry and Market Data specs.
+versioning:
+  scheme: per-specification document version (semver-style) with dated revision history
+  order_entry_docs: https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Order-Entry-Specifications.pdf
+  market_data_docs: https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Market-Data-Specifications.pdf
+entries:
+  - spec: FIX Order Entry
+    version: 1.0.14
+    date: '2024-07-30'
+    highlights:
+      - Logon interaction model added; Logon (IN) sample updated.
+      - Resend Request and Sequence Reset (IN) interaction models and matrices added.
+  - spec: FIX Order Entry
+    version: 1.0.8
+    date: '2024-05-03'
+    additions:
+      - Added OrdStatus value 8 [REJECTED] and C [EXPIRED] references for Tag 39.
+      - Added ExecType I [ORDER STATUS] for Tag 150 on OrderMassStatusRequest.
+  - spec: FIX Order Entry
+    version: 1.0.7
+    date: '2024-05-01'
+    additions:
+      - Added Throttle Limits section (1000 messages per 5 seconds per FIX ID).
+  - spec: FIX Order Entry
+    version: 1.0.3
+    date: '2024-04-24'
+    additions:
+      - Enumerated CxlRejReason and OrdRejReason codes for ExecutionReport / OrderCancelReject.
+  - spec: FIX Market Data
+    version: 1.0.8
+    date: '2024-06-10'
+    breaking:
+      - Removed aggregated price-level snapshot from Market Data Snapshot Full Refresh.
+  - spec: FIX Market Data
+    version: 1.0.2
+    date: '2024-04-04'
+    additions:
+      - Added TradeID to Market Data Incremental Refresh.

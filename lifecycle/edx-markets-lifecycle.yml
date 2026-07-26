@@ -1,0 +1,35 @@
+generated: '2026-07-19'
+method: searched
+source: https://edxmarkets.com/vr-edx-markets/
+description: >-
+  Versioning, environment and change-management posture for the EDX Markets
+  venue. Each connectivity specification carries its own document version and a
+  dated revision history; changes are communicated to members via Information
+  Circulars. EDX operates parallel UAT and Production environments. No public
+  status page, uptime SLA document, or formal deprecation/Sunset-header policy
+  is published on the venue resources site (connectivity is member-provisioned
+  and operational communication runs through Market Operations).
+versioning:
+  scheme: per-specification document version (semver-style)
+  detail: changelog/edx-markets-changelog.yml
+environments:
+  - name: Production
+    docs: https://edxmarkets.com/vr-edx-markets/
+  - name: UAT
+    docs: https://edxmarkets.com/vr-edx-markets/
+    information_circular: https://edxmarkets.com/wp-content/uploads/EDX-Markets-Information-Circular_UAT.pdf
+change_management:
+  mechanism: Information Circulars + dated specification revision histories
+  contact: connectivity@edxmarkets.com
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No formal deprecation/RFC 8594 Sunset policy published on the public site.
+status_page: null
+sla:
+  url: null
+  note: No public uptime SLA document; clearing/settlement assurances are in the EDX Clearing Rulebook.
+governance:
+  rulebook: https://edxmarkets.com/wp-content/uploads/EDX-Markets-Rulebook.pdf
+  clearing_rulebook: https://edxmarkets.com/wp-content/uploads/EDX-Clearing-Rulebook.pdf
+deprecated_operations: []

@@ -1,0 +1,51 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Order-Entry-Specifications.pdf
+description: >-
+  The FIX reject / error surface of the EDX Markets order-entry venue. Errors
+  are not HTTP status codes but FIX reject messages carrying numeric reason
+  codes. This catalog captures the reject message families and the enumerated
+  OrdRejReason (Tag 103) values published in the FIX Order Entry Specification.
+format: fix
+envelopes:
+  - message: Reject
+    msg_type: '3'
+    layer: session
+    reason_field: SessionRejectReason (Tag 373)
+  - message: BusinessMessageReject
+    msg_type: j
+    layer: business
+    reason_field: BusinessRejectReason (Tag 380)
+  - message: ExecutionReport (REJECTED)
+    msg_type: '8'
+    layer: order
+    reason_field: OrdRejReason (Tag 103)
+    note: OrdStatus (Tag 39) = 8 [REJECTED]; human-readable Text in Tag 58.
+  - message: OrderCancelReject
+    msg_type: '9'
+    layer: order
+    reason_field: CxlRejReason (Tag 102)
+ord_rej_reasons:
+  field: OrdRejReason (Tag 103)
+  codes:
+    - {code: 0, meaning: BROKER_EXCHANGE_OPTION}
+    - {code: 1, meaning: UNKNOWN_SYMBOL}
+    - {code: 5, meaning: UNKNOWN_ORDER}
+    - {code: 6, meaning: DUPLICATE_ORDER}
+    - {code: 11, meaning: UNSUPPORTED_ORDER_CHARACTERISTIC}
+    - {code: 13, meaning: INCORRECT_QUANTITY}
+    - {code: 16, meaning: PRICE_EXCEEDS_CURRENT_PRICE_BAND}
+    - {code: 99, meaning: OTHER}
+    - {code: 100, meaning: ORDER_BOOK_IN_SUSPENDED_STATE}
+    - {code: 101, meaning: ORDER_BOOK_IN_HALT_STATE}
+    - {code: 102, meaning: ORDER_BOOK_IN_EXPIRED_STATE}
+    - {code: 103, meaning: ORDER_BOOK_IN_LISTED_STATE}
+    - {code: 104, meaning: ORDER_BOOK_IN_POST_ONLY_STATE}
+    - {code: 105, meaning: ORDER_BREACHES_BASE_POSITION_LIMIT}
+    - {code: 106, meaning: ORDER_BREACHES_QUOTE_POSITION_LIMIT}
+    - {code: 200, meaning: ACCESS_TO_DESIGNATED_RETAIL_DENIED}
+session_signals:
+  - name: RATE_LIMIT_EXCEEDED
+    meaning: FIX ID exceeded 1000 messages per 5 seconds; the session is disconnected.
+    detail: rate-limits/edx-markets-rate-limits.yml

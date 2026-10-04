@@ -65,7 +65,6 @@ apis:
     market data over a FIXT.1.1 session inside a mutually authenticated TLS
     tunnel. Member-provisioned; there is no public REST/OpenAPI endpoint.
   humanURL: https://edxmarkets.com/vr-edx-markets/
-  baseURL: https://edxmarkets.com
   tags:
   - FIX
   - Order Entry

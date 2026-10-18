@@ -47,6 +47,16 @@ created: '2026-07-17'
 modified: '2026-07-19'
 tags:
 - Company
+- Cryptocurrency
+- Digital Assets
+- Exchange
+- Trading
+- FIX Protocol
+- Market Data
+- Clearing
+- Institutional
+tags_raw:
+- Company
 - Crypto
 - Cryptocurrency
 - Digital Assets
@@ -66,6 +76,11 @@ apis:
     tunnel. Member-provisioned; there is no public REST/OpenAPI endpoint.
   humanURL: https://edxmarkets.com/vr-edx-markets/
   tags:
+  - FIX
+  - Order Entry
+  - Market Data
+  - Cryptocurrency Exchange
+  tags_raw:
   - FIX
   - Order Entry
   - Market Data

@@ -64,6 +64,98 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-EDX Markets is a company surfaced as a portfolio company of pantera-capital and added to the API Evangelist network as a stub for enrichment. Sector: crypto. This profile is a lead awaiting the enrichment pipeline.
+EDX Markets is an institutional cryptocurrency exchange that operates the world's only centrally cleared crypto trading venue, combining deep liquidity, transparent markets, low trading costs and ultra-low-latency matching-engine technology. It runs a spot exchange (EDX Markets), a perpetual-futures exchange (EDXM International, based in Singapore), a central clearinghouse with daily net settlement and bankruptcy-remote member accounts (EDXM Global), and a white-label crypto-as-a-service platform (EDX FlowConnect). Connectivity for members is delivered over the FIX protocol — FIX 5.0 SP2 order entry and drop copy plus FIX and binary (SBE) market data, transported over mutually authenticated TLS — rather than a public REST/OpenAPI. EDX is backed by institutional partners and was surfaced through the pantera-capital portfolio.
 
-Backed by: pantera-capital — https://www.edxmarkets.com/
+**Areas:** Company · Cryptocurrency · Digital Assets · Exchange · Trading · FIX Protocol · Market Data · Clearing · Institutional
+
+## EDX Markets on APIs.io
+
+Everything profiled for EDX Markets is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/edx-markets/](https://apis.io/providers/edx-markets/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [EDX Markets FIX API (Order Entry & Market Data)](https://apis.io/apis/edx-markets/edx-markets-fix-api-order-entry-market-data/) — The EDX Markets institutional trading interface, delivered over the FIX protocol: FIX 5.0 SP2 order entry and drop copy plus FIX and binary (SBE) market…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Edx Markets Authentication](https://apis.io/security/edx-markets/edx-markets-authentication/)
+- [Edx Markets Domain Security](https://apis.io/security/edx-markets/edx-markets-domain-security/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Edx Markets Rate Limits](https://apis.io/rate-limits/edx-markets/edx-markets-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.edxmarkets.com/)
+- [Documentation](https://edxmarkets.com/vr-edx-markets/)
+- [API reference](https://edxmarkets.com/wp-content/uploads/EDXM-FIX-Order-Entry-Specifications.pdf)
+- [Pricing](https://edxmarkets.com/wp-content/uploads/EDX-Markets-Fee-Schedule.pdf)
+- [Sign up](https://edxmarkets.com/join-edx-markets/)
+- [Support](https://edxmarkets.com/contact/)
+- [Blog](https://edxmarkets.com/news-insights/)
+- [Terms of service](https://edxmarkets.com/terms-of-use/)
+- [Privacy policy](https://edxmarkets.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 33.2** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 52.4 |
+| Access clarity | 44.7 |
+
+**Agent readiness 7.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 23.1** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/edx-markets/](https://apis.io/providers/edx-markets/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for EDX Markets: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/edx-markets/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
